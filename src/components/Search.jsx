@@ -5,16 +5,23 @@ export default function Search({ setLocation, setWeather, setForecast }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selected, setSelected] = useState(false);
 
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
-      if (query.length > 2) fetchLocations(query);
+      if (query.length > 2 && !selected) fetchLocations(query);
+      else {
+        setResults([]);
+      }
     }, 500);
+
     return () => clearTimeout(delayDebounce);
   }, [query]);
 
   async function fetchLocations(query) {
     setLoading(true);
+    setWeather(null);
+    setForecast(null);
     try {
       const res = await axios.get(
         `https://geocoding-api.open-meteo.com/v1/search`,
@@ -34,8 +41,9 @@ export default function Search({ setLocation, setWeather, setForecast }) {
     setLoading(false);
   }
   async function handleSelect(city) {
-    setQuery("");
+    setQuery(city.name);
     setResults([]);
+    setSelected(true);
     document.activeElement.blur(); // optional UX improvement
     setLocation(city);
 
@@ -64,7 +72,10 @@ export default function Search({ setLocation, setWeather, setForecast }) {
         type="text"
         placeholder="Search city..."
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => {
+          setSelected(false);
+          setQuery(e.target.value);
+        }}
       />
       {loading && <div className="form-text">Loading...</div>}
       {results.length > 0 && (
