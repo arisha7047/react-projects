@@ -1,12 +1,34 @@
-# React + Vite
+# 🌦️ Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and sleek Weather App built using **React** and the **Open-Meteo API**. This app allows users to:
 
-Currently, two official plugins are available:
+- 🌍 Search for any city with autocomplete
+- 📍 View current weather data
+- 📅 See a 5-day weather forecast
+- 🔁 Fetch real-time weather updates
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🌐 Geolocation and city name search with autocomplete
+- 📊 Real-time temperature, humidity, wind speed, etc.
+- 📅 5-day forecast using the Open-Meteo Forecast API
+- 🔍 Clean and responsive UI
+- ⚡ Powered by Open-Meteo APIs
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧰 Tech Stack
+
+- **Frontend**: React, JavaScript, CSS
+- **APIs**: 
+  - [Open-Meteo Weather API](https://open-meteo.com/)
+  - [Open-Meteo Geocoding API](https://open-meteo.com/en/docs/geocoding-api)
+
+## 📸 Screenshots
+
+*Add your screenshots here*
+
+## 🛠️ Setup Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/arisha7047/react-projects.git
+   cd react-projects/weather-app
